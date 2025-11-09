@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1.0" />
+    <title>Ride Aware</title>
+    <link rel="stylesheet" href="https:// ht e1 erbhcdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
+    <style>
+      :root {
+        --primary: #111827;
+        --accent: #f97316;
+        --text-light: #f3f46f;
+      } body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #18181b; /* zinc-900 */
+      color: var(--text-light);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Desktop Navigation */
+    nav.desktop {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      nav.desktop {
+        display: block;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 50;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(4px);
+        border-bottom: 1px solid #27272a;
+      }
+      nav.desktop .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav.desktop .links a {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #a1a1aa;
+        transition: all 0.2s;
+      }
+      nav.desktop .links a:hover {
+        color: white;
+        background-color: #27272a;
+      }
+      nav.desktop .links a.active {
+        color: white;
+        background-color: var(--accent);
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #ea580c;
+      }
+    }
+
+    /* Mobile Navigation */
+    nav.mobile {
+      display: block;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #27272a;
+    }
+    @media (min-width: 768px) {
+      nav.mobile { display: none; }
+    }
+    nav.mobile .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+    }
+    nav.mobile .menu {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: rgba(0,0,0,0.98);
+      border-bottom: 1px solid #27272a;
+    }
+    nav.mobile .menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #a1a1aa;
+      transition: all 0.2s;
+    }
+    nav.mobile .menu a:hover {
+      color: white;
+      background-color: #27272a;
+    }
+    nav.mobile .menu a.active {
+      color: white;
+      background-color: var(--accent);
+    }
+
+    main {
+      padding-top: 5rem;
+    }
+
+    footer {
+      background: black;
+      border-top: 1px solid #27272a;
+      margin-top: 5rem;
+      padding: 3rem 1.5rem;
+    }
+    footer .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      footer .grid {
+        grid-template-columns: repeat(3,1fr);
+      }
+    }
+    footer h3, footer h4 {
+      color: white;
+      margin: 0 0 1rem 0;
+    }
+    footer p, footer a {
+      font-size: 0.875rem;
+      color: #a1a1aa;
+    }
+    footer a:hover {
+      color: var(--accent);
+    }
+    footer .bottom {
+      border-top: 1px solid #27272a;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      text-align: center;
+      color: #71717a;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>      
+<body>
+  
+  <!-- Desktop Navigation -->
+  <nav class="desktop">
+    <div class="container">
+      <a href="home.html" class="logo">
+        <i class="lucide-heart" style="color: var(--accent); font-size: 2rem;"></i>
+        <span style="font-size: 1.25rem; font-weight: bold; color: white;">Ride Aware</span>
+      </a>
+      <div class="links">
+        <a href="home.html" class="active">Home</a>
+        <a href="impact-map.html">Impact Map</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html"><button class="btn">Donate</button></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile">
+    <div class="bar">
+      <a href="home.html" class="logo">
+        <i class="lucide-heart" style="color: var(--accent); font-size: 1.5rem;"></i>
+        <span style="font-size: 1.125rem; font-weight: bold; color: white;">Ride Aware</span>
+      </a>
+      <button id="menuToggle" style="background:none;border:none;color:white;font-size:1.5rem;">
+        <i class="lucide-menu"></i>
+      </button>
+    </div>
+    <div class="menu" id="mobileMenu">
+      <a href="home.html" class="active">Home</a>
+      <a href="impact-map.html">Impact Map</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html"><button class="btn" style="width:100%;margin-top:0.5rem;">Donate Now</button></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div style="max-width: 1280px; margin: 0 auto; padding: 1.5rem;">
+      <h1>Welcome to Ride Aware</h1>
+      <p>This is where your page content goes.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <i class="lucide-heart" style="color: var(--accent);"></i>
+          <h3>Ride Aware</h3>
+        </div>
+        <p>Dedicated to raising awareness about motorcycle safety and supporting riders and their families.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="home.html">Home</a><br>
+        <a href="impact-map.html">Impact Map</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <p>Join our mission to make roads safer for everyone.</p>
+        <a href="donate.html"><button class="btn">Donate Now</button></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <p>© 2025 Ride Aware. All rights reserved. Ride safe, ride aware.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let open = false;
+    toggleBtn.addEventListener('click', () => {
+      open = !open;
+      mobileMenu.style.display = open ? 'block' : 'none';
+      toggleBtn.innerHTML = open ? '<i class="lucide-x"></i>' : '<i class="lucide-menu"></i>';
+    });
+  </script>
+</body>
+</html>
